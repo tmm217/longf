@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Writer resource:
+
+  # CREATE
+  post("/insert_writer", { :controller => "writers", :action => "create" })
+          
+  # READ
+  get("/writers", { :controller => "writers", :action => "index" })
+  
+  get("/writers/:path_id", { :controller => "writers", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_writer/:path_id", { :controller => "writers", :action => "update" })
+  
+  # DELETE
+  get("/delete_writer/:path_id", { :controller => "writers", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Publication resource:
 
   # CREATE
