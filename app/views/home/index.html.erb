@@ -1,9 +1,15 @@
 <h1> DIET LONGFORM </h1>
 
-<p><%= Article.all.order({:date=>:desc}).first.date.strftime("%A, %B %e")%></p>
+<!--<p><%= Article.all.order({:date=>:desc}).first.date.strftime("%A, %B %e")%></p>-->
 
 <% Article.all.order({:date => :desc}).each do |piece| %>
     <h3><a href = "<%= piece.address%>"><%= piece.title %></a></h3>
     <h5><%= piece.blurb %></h5>
     <p><%= piece.writer.name.upcase%> <%=piece.pub.pub_name.upcase%> <%=piece.date.strftime("%b %Y").upcase%></p>
+<% end %>
+
+<% Article.all.eacb
+
+    <p><%= piece.created_at.strftime("%A, %B %e")%></p>
+
 <% end %>

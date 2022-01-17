@@ -4,7 +4,7 @@ class PublicationsController < ApplicationController
 
     @list_of_publications = matching_publications.order({ :created_at => :desc })
 
-    render({ :template => "publications/index.html.erb" })
+    render({ :template => "publications/index" })
   end
 
   def show

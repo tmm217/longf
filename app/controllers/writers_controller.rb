@@ -4,7 +4,7 @@ class WritersController < ApplicationController
 
     @list_of_writers = matching_writers.order({ :created_at => :desc })
 
-    render({ :template => "writers/index.html.erb" })
+    render({ :template => "writers/index" })
   end
 
   def show
