@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Publication resource:
+
+  # CREATE
+  post("/insert_publication", { :controller => "publications", :action => "create" })
+          
+  # READ
+  get("/publications", { :controller => "publications", :action => "index" })
+  
+  get("/publications/:path_id", { :controller => "publications", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_publication/:path_id", { :controller => "publications", :action => "update" })
+  
+  # DELETE
+  get("/delete_publication/:path_id", { :controller => "publications", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

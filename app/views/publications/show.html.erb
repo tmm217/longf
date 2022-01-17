@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Publication #<%= @the_publication.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/publications">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_publication/<%= @the_publication.id %>">
+          Delete publication
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Pub name
+      </dt>
+      <dd>
+        <%= @the_publication.pub_name %>
+      </dd>
+
+      <dt>
+        Pub address
+      </dt>
+      <dd>
+        <%= @the_publication.pub_address %>
+      </dd>
+
+      <dt>
+        Articles count
+      </dt>
+      <dd>
+        <%= @the_publication.articles_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_publication.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_publication.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit publication
+    </h2>
+
+    <form action="/modify_publication/<%= @the_publication.id %>"  method="post" >
+      <div>
+        <label for="pub_name_box">
+          Pub name
+        </label>
+
+        <input type="text" id="pub_name_box" name="query_pub_name" value="<%= @the_publication.pub_name %>">
+      </div>
+
+      <div>
+        <label for="pub_address_box">
+          Pub address
+        </label>
+
+        <input type="text" id="pub_address_box" name="query_pub_address" value="<%= @the_publication.pub_address %>">
+      </div>
+
+      <div>
+        <label for="articles_count_box">
+          Articles count
+        </label>
+
+        <input type="text" id="articles_count_box" name="query_articles_count" value="<%= @the_publication.articles_count %>">
+      </div>
+
+      <button>
+        Update publication
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

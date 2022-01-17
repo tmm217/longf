@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all publications
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new publication
+    </h2>
+
+    <form action="/insert_publication" method="post">
+      <div>
+        <label for="pub_name_box">
+          Pub name
+        </label>
+
+        <input type="text" id="pub_name_box" name="query_pub_name">
+      </div>
+
+      <div>
+        <label for="pub_address_box">
+          Pub address
+        </label>
+
+        <input type="text" id="pub_address_box" name="query_pub_address">
+      </div>
+
+      <div>
+        <label for="articles_count_box">
+          Articles count
+        </label>
+
+        <input type="text" id="articles_count_box" name="query_articles_count">
+      </div>
+
+      <button>
+        Create publication
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Pub name
+        </th>
+
+        <th>
+          Pub address
+        </th>
+
+        <th>
+          Articles count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_publications.each do |a_publication| %>
+      <tr>
+        <td>
+          <%= a_publication.id %>
+        </td>
+
+        <td>
+          <%= a_publication.pub_name %>
+        </td>
+
+        <td>
+          <%= a_publication.pub_address %>
+        </td>
+
+        <td>
+          <%= a_publication.articles_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_publication.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_publication.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/publications/<%= a_publication.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
