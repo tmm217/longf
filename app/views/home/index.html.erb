@@ -1,2 +1,8 @@
 <h1> DIET LONGFORM </h1>
 <p>hello, world</p>
+
+<% Article.all.order({:date => :desc}).each do |piece| %>
+    <h2><%= piece.title %></h2>
+    <h3><%= piece.blurb %></h3>
+    <h4><%= piece.author_id%> <%=piece.pub_id%> <%=piece.date.strftime("%b %Y").upcase%></h4>
+<% end %>
