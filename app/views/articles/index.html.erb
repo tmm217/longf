@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all articles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new article
+    </h2>
+
+    <form action="/insert_article" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="blurb_box">
+          Blurb
+        </label>
+
+        <input type="text" id="blurb_box" name="query_blurb">
+      </div>
+
+      <div>
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="query_author_id">
+      </div>
+
+      <div>
+        <label for="pub_id_box">
+          Pub
+        </label>
+
+        <input type="text" id="pub_id_box" name="query_pub_id">
+      </div>
+
+      <button>
+        Create article
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Blurb
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Pub
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_articles.each do |an_article| %>
+      <tr>
+        <td>
+          <%= an_article.id %>
+        </td>
+
+        <td>
+          <%= an_article.title %>
+        </td>
+
+        <td>
+          <%= an_article.date %>
+        </td>
+
+        <td>
+          <%= an_article.blurb %>
+        </td>
+
+        <td>
+          <%= an_article.author_id %>
+        </td>
+
+        <td>
+          <%= an_article.pub_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_article.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_article.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/articles/<%= an_article.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
