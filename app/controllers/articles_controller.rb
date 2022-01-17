@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
     @list_of_articles = matching_articles.order({ :created_at => :desc })
 
-    render({ :template => "articles/index.html.erb" })
+    render({ :template => "articles/index" })
   end
 
   def show
