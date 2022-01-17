@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Writer #<%= @the_writer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/writers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_writer/<%= @the_writer.id %>">
+          Delete writer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_writer.name %>
+      </dd>
+
+      <dt>
+        Articles count
+      </dt>
+      <dd>
+        <%= @the_writer.articles_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_writer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_writer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit writer
+    </h2>
+
+    <form action="/modify_writer/<%= @the_writer.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_writer.name %>">
+      </div>
+
+      <div>
+        <label for="articles_count_box">
+          Articles count
+        </label>
+
+        <input type="text" id="articles_count_box" name="query_articles_count" value="<%= @the_writer.articles_count %>">
+      </div>
+
+      <button>
+        Update writer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

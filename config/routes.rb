@@ -1,4 +1,61 @@
 Rails.application.routes.draw do
+  # Routes for the Article resource:
+
+  # CREATE
+  post("/insert_article", { :controller => "articles", :action => "create" })
+          
+  # READ
+  get("/articles", { :controller => "articles", :action => "index" })
+  
+  get("/articles/:path_id", { :controller => "articles", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_article/:path_id", { :controller => "articles", :action => "update" })
+  
+  # DELETE
+  get("/delete_article/:path_id", { :controller => "articles", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Writer resource:
+
+  # CREATE
+  post("/insert_writer", { :controller => "writers", :action => "create" })
+          
+  # READ
+  get("/writers", { :controller => "writers", :action => "index" })
+  
+  get("/writers/:path_id", { :controller => "writers", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_writer/:path_id", { :controller => "writers", :action => "update" })
+  
+  # DELETE
+  get("/delete_writer/:path_id", { :controller => "writers", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Publication resource:
+
+  # CREATE
+  post("/insert_publication", { :controller => "publications", :action => "create" })
+          
+  # READ
+  get("/publications", { :controller => "publications", :action => "index" })
+  
+  get("/publications/:path_id", { :controller => "publications", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_publication/:path_id", { :controller => "publications", :action => "update" })
+  
+  # DELETE
+  get("/delete_publication/:path_id", { :controller => "publications", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all writers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new writer
+    </h2>
+
+    <form action="/insert_writer" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="articles_count_box">
+          Articles count
+        </label>
+
+        <input type="text" id="articles_count_box" name="query_articles_count">
+      </div>
+
+      <button>
+        Create writer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Articles count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_writers.each do |a_writer| %>
+      <tr>
+        <td>
+          <%= a_writer.id %>
+        </td>
+
+        <td>
+          <%= a_writer.name %>
+        </td>
+
+        <td>
+          <%= a_writer.articles_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_writer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_writer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/writers/<%= a_writer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

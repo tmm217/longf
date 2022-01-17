@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Article #<%= @the_article.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/articles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_article/<%= @the_article.id %>">
+          Delete article
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_article.title %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_article.date %>
+      </dd>
+
+      <dt>
+        Blurb
+      </dt>
+      <dd>
+        <%= @the_article.blurb %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @the_article.author_id %>
+      </dd>
+
+      <dt>
+        Pub
+      </dt>
+      <dd>
+        <%= @the_article.pub_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_article.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_article.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit article
+    </h2>
+
+    <form action="/modify_article/<%= @the_article.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_article.title %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_article.date %>">
+      </div>
+
+      <div>
+        <label for="blurb_box">
+          Blurb
+        </label>
+
+        <input type="text" id="blurb_box" name="query_blurb" value="<%= @the_article.blurb %>">
+      </div>
+
+      <div>
+        <label for="author_id_box">
+          Author
+        </label>
+
+        <input type="text" id="author_id_box" name="query_author_id" value="<%= @the_article.author_id %>">
+      </div>
+
+      <div>
+        <label for="pub_id_box">
+          Pub
+        </label>
+
+        <input type="text" id="pub_id_box" name="query_pub_id" value="<%= @the_article.pub_id %>">
+      </div>
+
+      <button>
+        Update article
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
