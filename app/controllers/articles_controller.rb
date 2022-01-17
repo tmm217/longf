@@ -2,12 +2,20 @@ class ArticlesController < ApplicationController
   def index
     matching_articles = Article.all
 
-    @list_of_articles = matching_articles.order({ :created_at => :desc })
+    @list_of_articles = matching_articles.order({ :created_at => :desc }).to_a
+    @grouped_articles = []
+    @list_of_articles.each_with_index do |article, index|
+      if !index.zero? && @list_of_articles[index].created_at.beginning_of_day == @list_of_articles[index - 1].created_at.beginning_of_day
+        @grouped_articles.last << article
+      else
+        @grouped_articles << [article]
+      end
+    end
 
     render({ :template => "articles/index" })
   end
 
-  def show
+  def show    
     the_id = params.fetch("path_id")
 
     matching_articles = Article.where({ :id => the_id })
