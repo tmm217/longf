@@ -1,14 +1,14 @@
-<h1> DIET LONGFORM </h1>
+<body>
+    <h1> DIET LONGFORM </h1>
 
-<% @grouped_articles.each do |articles| %>
-    <%= articles[0].created_at.strftime("%A, %B %e") %>
-    <% articles.each do |piece| %>
-        <h3><a href = "<%= piece.address%>"><%= piece.title %></a></h3>
-        <h5><%= piece.blurb %></h5>
-        <p><%= piece.writer.name.upcase%> <%=piece.pub.pub_name.upcase%> <%=piece.date.strftime("%b %Y").upcase%></p>
+    <% @grouped_articles.each do |articles| %>
+        <%= articles[0].created_at.strftime("%A, %B %e") %>
+        <% articles.each do |piece| %>
+            <h3><a href = "<%= piece.address%>"><%= piece.title %></a></h3>
+            <h5><%= piece.blurb %></h5>
+            <p><%= piece.writer.name.upcase%> <%=piece.pub.pub_name.upcase%> <%=piece.date.strftime("%b %Y").upcase%></p>
+        <% end %>
+        <br>
+        <br>
     <% end %>
-    <br>
-    <br>
-    <br>
-    <br>
-<% end %>
+</body>
